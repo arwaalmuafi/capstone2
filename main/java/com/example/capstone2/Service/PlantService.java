@@ -110,6 +110,14 @@ public class PlantService {
     //2
     ArrayList<Plant>plantList=new ArrayList<>();
 
+       public List<Plant> findPlantBySize(String size){
+        List<Plant> plants=plantRepository.findPlantBySize(size);
+        if(plants==null){
+            throw new ApiException("not found");
+        }
+        return plants;
+    }
+
 
 
 
