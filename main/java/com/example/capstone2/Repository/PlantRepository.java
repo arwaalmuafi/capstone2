@@ -15,11 +15,11 @@ public interface PlantRepository extends JpaRepository<Plant,Integer> {
 
     Plant findPlantById(Integer id);
 
-    // Find plants by type
     List<Plant> findByType(String type);
 
-    // Find plants by water requirement
     List<Plant> findByWaterRequirementBetween(Double minWater, Double maxWater);
+
+     List<Plant> findPlantBySize(String size);
 
 
 
