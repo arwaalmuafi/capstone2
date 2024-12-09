@@ -60,6 +60,7 @@ public class PlantController {
         return ResponseEntity.status(200).body(plantService.filterPlantsByType(type));
     }
 
+
     //19
     // Suggest plants for a season
     @GetMapping("/season/{season}")
