@@ -30,19 +30,31 @@ public class Plant {
     @DecimalMin(value = "0.1", message = "Water requirement must be at least 0.1 liters/day.")
     @Column(nullable = false)
     private Double waterRequirement; // Water requirement in liters/day
+  @NotNull(message = "size connote be null.")
+    @Pattern(regexp="^(small|medium|large)$",message = "size only small medium or large")
+    @Column(nullable = false)
+    private String size;
 
     public Plant(){
 
     }
-    public Plant(Integer id, String name, String type, String season, Double waterRequirement) {
 
+    public @NotNull(message = "Water requirement cannot be null.") @Pattern(regexp = "^(small|medium|large)$", message = "size only small medium or large") String getSize() {
+        return size;
+    }
+
+    public void setSize(@NotNull(message = "Water requirement cannot be null.") @Pattern(regexp = "^(small|medium|large)$", message = "size only small medium or large") String size) {
+        this.size = size;
+    }
+
+    public Plant(Integer id, String name, String type, String season, Double waterRequirement, String size) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.season = season;
         this.waterRequirement = waterRequirement;
+        this.size = size;
     }
-
     public Integer getId() {
         return id;
     }
